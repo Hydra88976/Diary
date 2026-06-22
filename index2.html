@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<title>Profile Page</title>
+
+<style>
+
+@font-face {
+  font-family: 'romanceking';
+  /* Point to your exact .ttf file path */
+  src: url('./romanceking.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'shalma';
+  /* Point to your exact .ttf file path */
+  src: url('./shalma.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'galteniya';
+  /* Point to your exact .ttf file path */
+  src: url('./Galteniya.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'abassy';
+  /* Point to your exact .ttf file path */
+  src: url('./abassy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'family';
+  /* Point to your exact .ttf file path */
+  src: url('./family.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    height:100%;
+    overflow-y:hidden;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    /*padding:50px;*/
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    /*background: green;*/
+    /*overflow: hidden;*/
+    max-height: 100dvh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /*background: red;*/
+    border: 2px dotted grey;
+}
+
+/* Banner */
+.banner{
+    width:100%;
+    height:400px;
+    background:#151515;
+    border-radius:15px;
+    margin-bottom:60px;
+    background: url("whitestars.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    overflow: hidden;
+    /*background: transparent;*/
+    position: relative;
+}
+
+.moon
+{
+    height: 150px;
+    width: 150px;
+    
+    position: absolute;
+    left: 15rem;
+}
+
+.vid
+{
+    height: 750px;
+    width: 100%;
+}
+
+canvas {
+    display: block;
+    height: 750px;
+    width: 100%;
+}
+
+/* Profile Section */
+.profile-top{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    margin-top:-120px;
+    /*gap: 45px;*/
+    /*background: green;*/
+}
+
+.avatar-wrapper{
+    position:relative;
+}
+
+.avatar{
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    border:4px solid #000;
+    object-fit:cover;
+    display:block;
+}
+
+.plus-btn{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:none;
+    background:#fff;
+    color:#000;
+    font-size:24px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.stats{
+    display:flex;
+    gap:35px;
+    
+    flex: 1;
+    justify-content: space-around;
+    margin-left: 10px;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat h2{
+    font-size:60px;
+    font-family: 'family';
+}
+
+.stat p{
+    font-size:60px;
+    color:#ddd;
+    font-family: 'family';
+    margin-top: -20px;
+    
+}
+
+/* Name */
+.username{
+    margin-top:15px;
+    font-size:60px;
+    font-weight: ;
+    font-family: 'family';
+}
+
+/* Banner Button */
+.banner-btn{
+    margin-top:15px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-btn button{
+    background:transparent;
+    border:2px dotted grey; /*#444*/
+    color:#fff;
+    padding:11px; /*20px 20px*/
+    border-radius:20px; /*30*/
+    font-size:35px;
+    cursor:pointer;
+    font-family: 'romanceking';
+    width: 200px;
+    
+}
+
+/* Action Buttons */
+.actions{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.actions button{
+    flex: 1;
+    /*background:#2a2f38;*/
+    color:#fff;
+    border: 2px dotted grey;
+    padding:10px;
+    border-radius:20px;
+    font-size:35px;
+    /*font-weight:600;*/
+    cursor:pointer;
+    
+    background: transparent;
+    align-items: center;
+    position: relative;
+    font-family: 'romanceking';
+}
+
+.act-btn
+{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    background: url("bg4.jpeg");
+    position: relative;
+    
+}
+
+.icon-btn{
+    flex:0.25 !important;
+}
+
+/* Scroll Content */
+.content{
+    margin-top:25px;
+}
+
+.post{
+    height:180px;
+    background:#111;
+    border-radius:15px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#888;
+    font-size:18px;
+}
+
+
+
+
+.inner
+{
+    width: 100%;
+    max-width:1000px;
+    background:#222;
+    border-radius:5px;
+    overflow:hidden; /* keeps header/footer corners rounded */
+    /*color:white;*/
+    
+    margin-top: 40px;
+    /*background: green;*/
+    
+    background: url("bg24.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1600px;
+    /*margin-bottom: 100px;*/
+    
+}
+
+.inner2 {
+    width: 100%;
+    max-width: 1000px;
+    background: #222;
+    border-radius: 5px;
+    overflow: hidden;
+    /* keeps header/footer corners rounded */
+    /*color:white;*/
+    
+    margin-top: 40px;
+    /*background: green;*/
+    
+    background: url("bg6.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1500px;
+    
+}
+.card
+{
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    /*background: red;*/
+    
+}
+
+
+
+.footer{
+    background:#444;
+    padding:5px;
+    text-align:center;
+}
+
+.dummy
+{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+
+
+/* Popup */
+
+.pop-overlay{
+    position:relative;
+    inset:0;
+    /*background:rgba(0,0,0,0.75);*/
+    display:none;
+    justify-content:center;
+    align-items:flex-start;
+    z-index:1000;
+    padding:60px;
+    
+    /*transform: translate(-50%, -50%);
+    left: 50%;
+    top: -15rem;*/
+    /*background: red;*/
+    overflow: hidden;
+    max-width: 950px;
+    /*height: calc(100vh - 10vh);*/
+    transform: translate(-50%, -50%);
+    top: -40rem;
+    left: 50%;
+    width: 100%;
+    
+    
+}
+
+.popup-overlay-js
+{
+    position: absolute;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: none;
+    top: 50px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    
+}
+
+.pop{
+    width:100%;
+    max-width:950px;
+    background:#181818;
+    border-radius:40px;
+    padding:40px;
+    
+    margin-top: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+    height: 1000px;
+    
+    
+}
+
+.popup h2{
+    margin-bottom:15px;
+    font-size: 80px;
+    font-family: 'family';
+    text-align: center;
+    color: white;
+}
+
+.popup label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:8px;
+    font-size: 60px;
+    font-family: 'family';
+    color: white;
+    
+}
+
+.popup input,
+.popup textarea{
+    width:100%;
+    /*background:#2a2f38;*/
+    border:2px dotted white;
+    outline:none;
+    color:white; /*#fff*/
+    padding:20px;
+    border-radius:20px;
+    font-size: 40px; /*30*/
+    height: 90px;
+    background: #181818;
+    font-family: 'abassy';
+}
+
+.popup textarea{
+    min-height:500px;
+    resize:none;
+}
+
+.popup-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.popup-buttons button{
+    flex: 1;
+    padding:10px;
+    /*border:none;*/
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size: 40px;
+}
+
+.cancel-btn{
+    /*background:#444;*/
+    color:white;
+    background: #181818;
+    border: 2px dotted white;
+    font-family: 'family';
+}
+
+.save-btn{
+    /*background:#fff;*/
+    color: white;
+    background: #181818;
+    border: 2px dotted white;
+    font-family: 'family';
+}
+
+/* POPUP 2 */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    
+    display: none;
+    
+    width: 100vw;
+    height: 100dvh;
+    
+    background: #000;
+    
+    z-index: 9999;
+}
+
+.popup {
+    width: 100%;
+    max-width: 1000px;
+    
+    background: #181818;
+    
+    overflow-y: auto;
+    
+    padding: 30px;
+    border: 2px dotted gray;
+}
+
+.popup-side {
+    flex: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    
+    overflow: hidden;
+}
+
+/* Desktop */
+
+@media (min-width:768px) {
+    
+    .popup-overlay {
+        display: none;
+        justify-content: center;
+        align-items: stretch;
+    }
+    
+    .popup {
+        height: 100%;
+    }
+}
+
+/* Mobile */
+
+@media (max-width:767px) {
+    
+    .popup-overlay {
+        justify-content: center;
+    }
+    
+    .popup {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+    }
+    
+    .popup-side {
+        display: none;
+    }
+}
+
+/***********/
+
+.bio
+{
+    margin-top: 0px;
+    font-size: 70px; /*70*/
+    font-family: 'family';
+}
+
+.inkpot
+{
+    height: 150px;
+    width: 150px;
+   /* position: relative;
+    left: 5rem;*/
+    position: absolute;
+    top: -5rem; /*4*/
+    /*left: 31rem;*/
+    margin-left: -20px;
+}
+
+.anime
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    top: -10.7rem;
+    right: 0rem; /*2*/
+    transform: rotate(10deg);
+    
+}
+
+
+/* THEMES */
+
+.header{
+    /*background:#444;*/
+    /* display: flex;*/
+    padding:0px;
+    text-align:center;
+    font-size: 80px;
+    align-items: center;
+    gap: 10px;
+    font-family: 'galteniya';
+    color: black;
+    /*backgroundt: bold;
+    background: red;*/
+    height: 100px;
+    overflow: hidden;
+    /*background: red;*/
+}
+
+.data{
+    padding-left:30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    min-height:300px;
+   /* background: url("bg4.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    
+    font-family: 'family';
+    color: black;
+    font-size: 70px;
+    font-weight: ;
+    /*background: red;*/
+    word-break: break-word;
+}
+
+.header2 {
+    /*background:#444;*/
+    /* display: flex;*/
+    padding: 0px;
+    text-align: center;
+    font-size: 80px;
+    align-items: center;
+    gap: 10px;
+    font-family: 'galteniya';
+    color: white;
+    /*backgroundt: bold;
+    background: red;*/
+    height: 100px;
+    overflow: hidden;
+    /*background: red;*/
+}
+
+.data2 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    min-height: 300px;
+    /* background: url("bg4.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    
+    font-family: 'family';
+    color: white;
+    font-size: 70px;
+    font-weight: ;
+    /*background: red;*/
+    word-break: break-word;
+}
+
+
+.header3 {
+    /*background:#444;*/
+    /* display: flex;*/
+    padding: 0px;
+    text-align: center;
+    font-size: 80px;
+    align-items: center;
+    gap: 10px;
+    font-family: 'galteniya';
+    color: white;
+    /*backgroundt: bold;
+    background: red;*/
+    height: 100px;
+    overflow: hidden;
+    /*background: red;*/
+    
+}
+
+.data3 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    min-height: 300px;
+    /* background: url("bg4.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    
+    font-family: 'family';
+    color: white;
+    font-size: 70px;
+    font-weight: ;
+    /*background: green;*/
+    word-break: break-word;
+   /* position: relative;
+    top: -210px;*/
+    
+}
+
+.header4 {
+    /*background:#444;*/
+    /* display: flex;*/
+    padding: 0px;
+    text-align: center;
+    font-size: 80px;
+    align-items: center;
+    gap: 10px;
+    font-family: 'galteniya';
+    color: black;
+    /*backgroundt: bold;
+    background: red;*/
+    height: 100px;
+    overflow: hidden;
+    /*background: red;*/
+    /*margin-top: 210px;*/
+}
+
+.data4 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    min-height: 300px;
+    /* background: url("bg4.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    
+    font-family: 'family';
+    color: black;
+    font-size: 70px;
+    font-weight: ;
+    /*background: red;*/
+    word-break: break-word;
+}
+
+.header5 {
+    /*background:#444;*/
+    /* display: flex;*/
+    padding: 0px;
+    text-align: center;
+    font-size: 80px;
+    align-items: center;
+    gap: 10px;
+    font-family: 'galteniya';
+    color: black;
+    /*backgroundt: bold;
+    background: red;*/
+    height: 100px;
+    overflow: hidden;
+    /*background: red;*/
+    /*margin-top: 210px;*/
+}
+
+.data5 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    min-height: 300px;
+    /* background: url("bg4.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    
+    font-family: 'family';
+    color: black;
+    font-size: 70px;
+    font-weight: ;
+    /*background: red;*/
+    word-break: break-word;
+}
+.header6 {
+    /*background:#444;*/
+    /* display: flex;*/
+    padding: 0px;
+    text-align: center;
+    font-size: 80px;
+    align-items: center;
+    gap: 10px;
+    font-family: 'galteniya';
+    color: black;
+    /*backgroundt: bold;
+    background: red;*/
+    height: 100px;
+    overflow: hidden;
+    /*background: red;*/
+    /*margin-top: 210px;*/
+}
+
+.data6 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    min-height: 300px;
+    /* background: url("bg4.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    
+    font-family: 'family';
+    color: black;
+    font-size: 70px;
+    font-weight: ;
+    /*background: red;*/
+    word-break: break-word;
+}
+.by1
+{
+    font-size: 70px;
+    font-family: 'family';
+    color: black;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*background: green;*/
+    text-align: center;
+    position: relative;
+    margin-top: 2px;
+    
+}
+
+.time1
+{
+    font-size: 50px;
+    font-family: 'family';
+    
+}
+
+.by2
+{
+    font-size: 70px;
+    font-family: 'family';
+    color: white;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*background: green;*/
+    text-align: center;
+    position: relative;
+    margin-top: 2px;
+    
+}
+
+.time2
+{
+    font-size: 50px;
+    font-family: 'family';
+    
+}
+
+.by3
+{
+    font-size: 70px;
+    font-family: 'family';
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*background: yellow;*/
+    text-align: center;
+    /*position: relative;
+    top: -210px;*/
+    
+    
+}
+
+.time3
+{
+    font-size: 50px;
+    font-family: 'family';
+    color: white;
+}
+
+.by4
+{
+    font-size: 70px;
+    font-family: 'family';
+    color: black;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*background: green;*/
+    text-align: center;
+    position: relative;
+    margin-top: 2px;
+    
+}
+
+.time4
+{
+    font-size: 50px;
+    font-family: 'family';
+    
+}
+
+.by5
+{
+    font-size: 70px;
+    font-family: 'family';
+    color: black;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*background: green;*/
+    text-align: center;
+    position: relative;
+    margin-top: 2px;
+    
+}
+
+.time5
+{
+    font-size: 50px;
+    font-family: 'family';
+    
+}
+
+.by6
+{
+    font-size: 70px;
+    font-family: 'family';
+    color: black;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*background: green;*/
+    text-align: center;
+    position: relative;
+    margin-top: 2px;
+    
+}
+
+.time6
+{
+    font-size: 50px;
+    font-family: 'family';
+    
+}
+
+
+/**********/
+.theme-container
+{
+    display: flex;
+    gap: 50px;
+    /*background: red;*/
+    padding: 10px;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    border-radius: 10px;
+    /*border: 2px dotted gray;*/
+}
+
+.themes
+{
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.selected
+{
+    border: 7px solid gold;
+}
+
+.about-me
+{
+    font-family: 'family';
+    font-size: 70px;
+    color: white;
+}
+
+.purpose
+{
+    font-family: 'family';
+    font-size: 70px;
+    text-align: center;
+    /*background: red;*/
+    text-decoration: underline dotted grey 2px;
+    text-underline-offset: 10px;
+    text-decoration-skip: auto;
+}
+
+
+/* candle */
+
+.holder {
+  margin: 12rem auto 0;
+  width: 150px;
+  height: 400px;
+  position: relative;
+  
+  /*background: red;*/
+  right: -20rem;
+  justify-content: center;
+  align-items: center;
+  bottom: -30rem;
+  
+}
+
+.holder *, .holder *:before, .holder *:after {
+  position: absolute;
+  content: "";
+}
+
+.candle {
+  bottom: 0;
+  width: 71.5px;
+  height: 350px;
+  border-radius: 150px / 50px;
+  box-shadow: inset 20px -30px 50px 0 rgba(0, 0, 0, 0.4), inset -20px 0 50px 0 rgba(0, 0, 0, 0.4);
+  background: #190f02;
+  background: linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
+  
+  position: absolute;
+  right: 1px;
+}
+
+.candle:before {
+  width: 70px;
+  height: 20px;
+  border-radius: 150px / 50px;
+  border: 1px solid #d47401;
+  background: #b86409;
+  background: radial-gradient(#eaa121, #8e4901 45%, #b86409 80%);
+}
+
+.candle:after {
+  width: 35px;
+  height: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100%;
+  top: 14px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  background: radial-gradient(rgba(0, 0, 0, 0.6), transparent 45%);
+}
+
+.thread {  
+  width: 6px;
+  height: 36px;
+  top: -17px;
+  left: 50%;
+  z-index: 1;
+  border-radius: 40% 40% 0 0;
+  transform: translateX(-50%);
+  background: #121212;
+  background: linear-gradient(#d6994a, #4b232c, #121212, black, #e8bb31 90%);
+}
+
+.flame {
+  width: 24px;
+  height: 120px;
+  left: 50%;
+  transform-origin: 50% 100%;
+  transform: translateX(-50%);
+  bottom: 100%;
+  border-radius: 50% 50% 20% 20%;
+  background: rgba(255, 255, 255, 1);
+  background: linear-gradient(white 80%, transparent);
+  animation: moveFlame 6s linear infinite, enlargeFlame 5s linear infinite;
+}
+
+.flame:before {
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 0 0 15px 0 rgba(247, 93, 0, .4), 0 -6px 4px 0 rgba(247, 128, 0, .7);
+}
+
+@keyframes moveFlame {
+  0%, 100% {
+    transform: translateX(-50%) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(2deg);
+  }
+}
+
+@keyframes enlargeFlame {
+  0%, 100% {
+    height: 120px;
+  }
+  50% {
+    height: 140px;
+  }
+}
+
+.glow {
+  width: 26px;
+  height: 60px;
+  border-radius: 50% 50% 35% 35%;
+  left: 50%;
+  top: -48px;
+  transform: translateX(-50%);
+  background: rgba(0, 133, 255, .7);
+  box-shadow: 0 -40px 30px 0 #dc8a0c, 0 40px 50px 0 #dc8a0c, inset 3px 0 2px 0 rgba(0, 133, 255, .6), inset -3px 0 2px 0 rgba(0, 133, 255, .6);
+}
+
+.glow:before {
+  width: 70%;
+  height: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.blinking-glow {
+  width: 100px;
+  height: 180px;
+  left: 50%;
+  top: -55%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #ff6000;
+  filter: blur(60px);
+  animation: blinkIt .1s infinite;
+}
+
+@keyframes blinkIt {
+  50% { opacity: .8;}
+}
+
+
+
+/* end candle */
+
+
+</style>
+
+
+<body>
+
+<div class="container">
+
+    <div class="banner">
+        <img src="ymoon.png" class="moon"/>
+        <!--<canvas id="stars"></canvas>-->
+        <!--<video class="vid" autoplay muted loop id="myVideo">
+    <source src="clouds.mp4" type="video/mp4">
+</video>-->
+    </div>
+
+    <div class="profile-top">
+        <div class="avatar-wrapper">
+            <img src="https://picsum.photos/200" class="avatar">
+            <button class="plus-btn">+</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <h2>1</h2>
+                <p>posts</p>
+            </div>
+
+            <div class="stat">
+                <h2>5</h2>
+                <p>visitors</p>
+            </div>
+
+            <div class="stat">
+                <h2>10</h2>
+                <p>friends</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="username">Diary of aman</div>
+    <div class="bio">we may die but our memories will remain forever</div>
+
+    <div class="banner-btn">
+        <button onclick="openAboutBox()">About</button>
+    </div>
+    
+    
+    <!--<button class="act-btn">
+    <img src="inkpot.png" class="inkpot" alt="Icon">
+    Click Me
+    </button>-->
+
+    <div class="actions">
+        <button class="actbutton" onclick="openPopup()">Write memory<img src="inkpot.png" class="inkpot"/><img src="anime.png" class="anime"/></button>
+        <!--<button>Share profile</button>
+    <button class="icon-btn">👥</button>-->
+    </div>
+
+    <!--<div class="content">
+        <div class="post">Post 1</div>
+        <div class="post">Post 2</div>
+        <div class="post">Post 3</div>
+        <div class="post">Post 4</div>
+        <div class="post">Post 5</div>
+        <div class="post">Post 6</div>
+    </div>-->
+    
+ <div class="card" id="card">
+ <!-- <div class="inner">
+    <div class="header">Aman wrote</div>
+
+    <div class="data">
+        You will always be remembered by me
+    </div>
+
+    
+  </div>
+ </div>
+ 
+ <div class="card">
+  <div class="inner">
+    <div class="header">Aman wrote</div>
+
+    <div class="data">
+        You will always be remembered by me
+    </div>
+
+    
+  </div>
+ </div>
+ 
+  <div class="card">
+  <div class="inner">
+    <div class="header">Aman wrote</div>
+
+    <div class="data">
+        You will always be remembered by me.
+        Since I don't know you yet, let's change that! You are someone curious enough to ask an AI an open-ended question, which means you have a great imagination. You are likely reading this near Noida, India, and have a unique story, set of passions, and goals.If we were to write a quick "About Me" blurb for you, it might sound something like this:
+    </div>
+
+    
+  </div>
+ </div>
+ 
+  <div class="card">
+  <div class="inner">
+    <div class="header">Aman wrote</div>
+
+    <div class="data">
+        You will always be remembered by me
+    </div>
+
+    
+  </div>
+ </div> -->
+ 
+
+</div>
+
+
+<!-- Popup -->
+
+<!--<div class="popup-overlay" id="popup">
+    <div class="popup">
+
+        <h2>Create Banner</h2>
+
+        <label>Your Name</label>
+        <input type="text" placeholder="Enter your name" id="name-field">
+
+        <label>What title you want to give me</label>
+        <input type="text" placeholder="Choose what describes me best" id="title-field">
+
+        <label>Description</label>
+        <textarea placeholder="Write whatever you feel" id="description-field"></textarea>
+
+        <div class="popup-buttons">
+            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+            <button class="save-btn" id="save">Save</button>
+        </div>
+
+    </div>
+</div>-->
+
+<!-- POPUP 2 -->
+
+<div class="popup-overlay" id="popup">
+    
+    <div class="popup-side left-side">
+        <!-- Your logo/image -->
+        
+    </div>
+    
+    <div class="popup">
+        <!-- Form Content -->
+        <h2>light a candle of memories</h2>
+
+<label>Your Name</label>
+<input type="text" placeholder="Enter your name" id="name-field" required pattern="^(?!\s*$).+" title="Please dont use empty space in your name" maxlength="10">
+
+<label>What title you want to give me</label>
+<input type="text" placeholder="Choose what describes me best" id="title-field" required pattern="^(?!\s*$).+" title="Please dont use empty space in title" maxlength="10">
+
+<label>Description</label>
+<textarea placeholder="Write whatever you feel" id="description-field" required pattern="\S(.*\S)?" maxlength="50"></textarea>
+
+<label>Theme</label>
+<div class="theme-container">
+ <img class="themes selected" src="bg24.jpeg" id="1"/>
+    <img class="themes" src="bg14.jpeg" id="2"/>
+    <img class="themes" src="bg22.jpeg" id="3"/>
+    <img class="themes" src="bg25.jpeg" id="4"/>
+    <img class="themes" src="bg27.jpeg" id="5"/>
+    <img class="themes" src="dua.jpeg" id="6"/>
+    <!--<img class="themes" src="bg1.jpeg" id="7"/>
+    <img class="themes" src="bg1.jpeg" id="8"/>-->
+</div>
+
+<div class="popup-buttons">
+    <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+    <button class="save-btn" id="save">Save</button>
+</div>
+        
+        
+    </div>
+    
+    <div class="popup-side right-side">
+        <!-- Your logo/image -->
+        
+    </div>
+    
+</div>
+
+<!-- END POPUP 2 -->
+
+
+<!-- ABOUT BOX -->
+
+
+<div class="popup-overlay" id="about-box">
+    
+    <div class="popup-side left-side">
+        <!-- Your logo/image -->
+        
+    </div>
+    
+    <div class="popup">
+        <!-- Form Content -->
+        <p class="purpose">Purpose of this place</p>
+        <p class="about-me">
+
+This is more than just a diary it's a collection of memories, thoughts, and moments shared by the people who have been a part of my journey. Here, friends, family, and loved ones can leave messages, stories, wishes, advice, or anything they would like me to remember.
+<br>
+Every entry becomes a piece of my story, preserving emotions and experiences that might otherwise fade with time. Whether it's a funny memory, a heartfelt note, or a few simple words, each contribution is valuable and appreciated.
+<br>
+Thank you for taking a moment to write something here. Your words will remain as lasting memories that I can revisit and cherish for years to come.
+
+        </p>
+        
+        <div class="popup-buttons">
+            <button class="cancel-btn" onclick="closeAboutBox()">OK</button>
+        </div>
+        
+        
+    </div>
+    
+    <div class="popup-side right-side">
+        <!-- Your logo/image -->
+        
+    </div>
+    
+</div>
+
+
+<!-- END ABOUT BOX -->
+
+
+<script>
+function openPopup(){
+    document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}  
+
+function openAboutBox() {
+    document.getElementById("about-box").style.display = "flex";
+}
+
+function closeAboutBox() {
+    document.getElementById("about-box").style.display = "none";
+}
+
+
+
+/*const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+}
+resize();
+addEventListener("resize", resize);
+
+const colors = [
+    "#ffffff", // white
+    "#ffd700", // gold
+    "#87cefa", // light blue
+    "#ff69b4", // pink
+    "#98fb98", // pale green
+    "#ffa500", // orange
+    "#ba55d3" // purple
+];
+
+const stars = [];
+
+for (let i = 0; i < 10; i++) {
+    stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2 + 1,
+        alpha: Math.random(),
+        speed: Math.random() * 0.05 + 0.005,
+        dir: Math.random() > 0.5 ? 1 : -1,
+        color: colors[Math.floor(Math.random() * colors.length)]
+    });
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    stars.forEach(star => {
+        
+        star.alpha += star.speed * star.dir;
+        
+        if (star.alpha >= 1) {
+            star.alpha = 1;
+            star.dir = -1;
+        }
+        
+        if (star.alpha <= 0.1) {
+            star.alpha = 0.1;
+            star.dir = 1;
+        }
+        
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 5);
+        
+        ctx.fillStyle = star.color;
+        ctx.globalAlpha = star.alpha;
+        
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = star.color;
+        
+        ctx.fill();
+    });
+    
+    ctx.globalAlpha = 5;
+    requestAnimationFrame(animate);
+}
+
+animate();*/
+    
+/*document.querySelectorAll('.themes').forEach(theme => {
+    theme.addEventListener('click', function() {
+        this.classList.toggle('selected');
+    });
+});*/
+    
+
+/*$('.themes').click(function() {
+    $('.themes').removeClass('selected');
+    $(this).addClass('selected');
+    alert($(this).attr('id'))
+    
+});*/
+
+
+/*$(document).on('click', '.themes', function() {
+    $('.themes').removeClass('selected');
+    $(this).addClass('selected');
+});*/
+    
+    
+    
+    
+
+
+/*var popup = document.getElementById("popup");
+window.visualViewport.addEventListener('resize', () => {
+    popup.style.maxHeight = visualViewport.height - 20 + 'px';
+    popup.style.transform =
+            `translateY(-${visualViewport.height * 0.1}px)`;
+});*/
+
+
+/*const popup = document.getElementById("popup");
+
+window.visualViewport.addEventListener('resize', () => {
+
+    const keyboardHeight =
+        window.innerHeight - window.visualViewport.height;
+
+    if (keyboardHeight > 100) {
+        popup.style.transform =
+            `translateY(-${keyboardHeight * 0.5}px)`;
+    } else {
+        popup.style.transform = '';
+    }
+
+});*/
+
+</script>
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+  import { getDatabase, set, ref, child, push, onValue, get} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+import { getFirestore, doc, setDoc, getDoc, collection, getDocs, onSnapshot, deleteDoc, query, orderBy, serverTimestamp} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  /*const firebaseConfig = {
+    apiKey: "AIzaSyAVWWMkLRAC79kvrx5PpvdkMtgMKmbc1hs",
+    authDomain: "store-4a0c9.firebaseapp.com",
+    projectId: "store-4a0c9",
+    storageBucket: "store-4a0c9.appspot.com",
+    messagingSenderId: "679682903095",
+    appId: "1:679682903095:web:6c0a555b55dd660e5683b2"
+  };*/
+  
+  
+  const firebaseConfig = {
+  apiKey: "AIzaSyCY-YRbWBexOHj_a-B7vTmxSthBizYr3UA",
+  authDomain: "insta-e6486.firebaseapp.com",
+  projectId: "insta-e6486",
+  storageBucket: "insta-e6486.appspot.com",
+  messagingSenderId: "404557604443",
+  appId: "1:404557604443:web:b0ed5ce9c0adbeb1b1c17e",
+  measurementId: "G-8EWKX7DCQX"
+};
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  var theme = 1;
+  
+  
+  
+ /*const snapshot = await getCountFromServer(collection(db, 'Users'));
+ alert("Total documents:", snapshot.data().count);*/
+  
+  
+  $('.themes').click(function()
+{
+    $('.themes').removeClass('selected');
+    $(this).addClass('selected');
+    //alert($(this).attr('id'));
+    theme = $(this).attr('id');
+});
+  
+  
+  
+  /* ADD RECORD */
+  
+document.getElementById("save").addEventListener("click", function posted(){
+    
+ const date = new Date();
+ var day = date.getDate();
+ var month = date.toLocaleString("default", { month: 'short'});
+ var year = date.getFullYear();
+ 
+ var h = date.getHours();
+ var m = date.getMinutes();
+ 
+  var key = Math.random();
+  var verified = "Yes";
+  var unverified = "No";
+  var love = "love";
+  var nolove = "nolove";
+  
+/* let uname = document.getElementById("nam").value;
+const post = document.getElementById("tx").value;
+
+
+
+var tf = document.getElementById("tx").value.trim();
+var inpt = document.getElementById("tx");
+var inpf = document.getElementById("nam");
+var nf = document.getElementById("nam").value.trim();
+var save = document.getElementById("psave");
+const stop = new Audio("stop.mp3");
+const sent = new Audio("success.mp3");*/
+
+const save = document.getElementById("save");
+const namefield = document.getElementById("name-field");
+const titlefield = document.getElementById("title-field");
+const descfield = document.getElementById("description-field");
+    
+    if(namefield.value.trim() ==="" && titlefield.value.trim() === "" && descfield.value.trim() === "")
+    {
+        //bt.style.background="red";
+        //stop.play();
+        namefield.focus();
+        namefield.value="";
+        namefield.placeholder = "Don't leave this field empty";
+       /* setTimeout(2000,alert("Please Enter Something!"));*/
+       //bt.disabled=true;
+       
+       
+        titlefield.value="";
+        titlefield.placeholder="Please write you Name";
+       
+    }
+   else if(namefield.value.trim() === "")
+    {
+        //bt.style.background="red";
+        //stop.play();
+        namefield.value="";
+        namefield.focus();
+        namefield.placeholder="Please write you Name";
+        //alert("Please Enter Your Name!");
+       //bt.disabled=true;
+    }
+   /* else if(nf ==="" && tf !="")
+    {
+        stop.play();
+    }*/
+    else if (titlefield.value.trim() === "")
+    {
+        //stop.play();
+        titlefield.focus();
+        titlefield.value="";
+        titlefield.placeholder = "Don't leave this field empty";
+    }
+    else if (descfield.value.trim() === "")
+    {
+        //stop.play();
+        descfield.focus();
+        descfield.value = "";
+        descfield.placeholder = "Don't leave this field empty";
+    }
+
+else if (namefield.value.trim().toUpperCase()=="AMAN" || namefield.value.trim().toUpperCase()=="unb") {
+setDoc(doc(db, 'Users',namefield.value+key),{
+  				Written_By: namefield.value,
+  				Wrote: descfield.value,
+  				Title: titlefield.value,
+				Time: day+" "+month+" "+year+" "+h+":"+m,
+  				Verified: verified,
+  				Theme: theme,
+  				Love: nolove,
+  				createdAt: serverTimestamp(),
+
+  });
+  //sent.play();
+  //bt.disabled=true;
+document.getElementById("popup").style.display="none";
+namefield.value="";
+titlefield.value="";
+descfield.value="";
+namefield.placeholder = "Enter Your Name";
+titlefield.placeholder = "Choose what describes me best";
+descfield.placeholder = "Write whatever you feel";
+//alert("Thank you");
+				
+}
+
+else if (namefield.value.trim().toUpperCase()=="EVA" || namefield.value.trim().toUpperCase() =="SHANAYA") {
+setDoc(doc(db, 'Users',namefield.value+key),{
+  				Written_By: namefield.value,
+  				Wrote: descfield.value,
+  				Title: titlefield.value,
+				Time: day+" "+month+" "+year+" "+h+":"+m,
+  				Verified: unverified,
+  				Theme: theme,
+  				Love: love,
+  				createdAt: serverTimestamp(),
+  });
+  /*sent.play();
+  bt.disabled=true;*/
+document.getElementById("popup").style.display="none";
+namefield.value="";
+titlefield.value="";
+descfield.value="";
+namefield.placeholder = "Enter Your Name";
+titlefield.placeholder = "Choose what describes me best";
+descfield.placeholder = "Write whatever you feel";
+}
+
+else {
+setDoc(doc(db, 'Users',namefield.value+key),{
+  				Written_By: namefield.value,
+  				Wrote: descfield.value,
+  				Title: titlefield.value,
+			    Time: day+" "+month+" "+year+" "+h+":"+m,
+				Verified: unverified,
+				Theme: theme,
+				Love: nolove,
+				createdAt: serverTimestamp(),
+				});
+					/*sent.play();
+					bt.disabled=true;*/
+document.getElementById("popup").style.display="none";
+namefield.value="";
+titlefield.value="";
+descfield.value="";
+namefield.placeholder = "Enter Your Name";
+titlefield.placeholder = "Choose what describes me best";
+descfield.placeholder = "Write whatever you feel";
+//alert("Thank You");
+					
+					
+				}
+})
+  
+  /* ----------- */
+  
+  
+  function displayNotes()
+  {
+    const dataRef = collection(db, 'Users');
+const Query = query(dataRef, orderBy('createdAt'));
+
+    window.unsubscribe = onSnapshot(Query, (snap) =>{
+    snap.docChanges().forEach(change => {
+        
+        let post = document.createElement('div');
+        post.setAttribute("class", "inner");
+        
+        if (change.type === 'added') {
+            
+            
+  function getTheme(data) {
+  //const themes = [];
+
+  if (data.Theme === "1")      
+  {
+    //alert(data.Theme);
+    return "1";
+  }
+  else if (data.Theme === "2")
+  {
+    //alert(data.Theme);
+    return "2";
+  }
+  else if (data.Theme === "3")
+  {
+    //alert(data.Theme);
+    return "3";
+  }
+  else if (data.Theme === "4")
+  {
+    //alert(data.Theme);
+    return "4";
+  }
+  else if (data.Theme === "5")
+  {
+    //alert(data.Theme);
+    return "5";
+  }
+  else if (data.Theme === "6")
+  {
+    //alert(data.Theme);
+    return "6";
+  }
+  else
+  {
+      return "1";
+  }
+  
+  }
+        
+    
+  function applyTheme(element, theme)
+  {
+      switch(theme)
+      {
+          case "1":
+              element.innerHTML+=`
+    <div class="header">${change.doc.data().Title}</div>
+
+    <div class="data">
+        ${change.doc.data().Wrote}
+    </div>
+    
+    <div class="by1">${change.doc.data().Written_By}
+      <div class="time1">${change.doc.data().Time}</div>
+    </div>
+
+    <!--<div class="footer">Footer</div>-->
+  </div>
+ `;
+ 
+ document.getElementById("card").appendChild(post);
+ break;
+          case "2":
+              element.style.backgroundImage="url('bg14.jpeg')";
+              element.innerHTML+=`
+              <div class="header2">${change.doc.data().Title}</div>
+
+    <div class="data2">
+        ${change.doc.data().Wrote}
+    </div>
+    
+    <div class="by2">${change.doc.data().Written_By}
+    <div class="time2">${change.doc.data().Time}</div>
+    </div>
+
+    <!--<div class="footer">Footer</div>-->
+  </div>`;
+  
+  document.getElementById("card").appendChild(post);
+              break;
+              
+          case "3":
+              element.style.backgroundImage="url('bg22.jpeg')";
+              element.innerHTML+= `
+              <div class="header3">${change.doc.data().Title}</div>
+
+    <div class="data3">
+        ${change.doc.data().Wrote}
+    </div>
+    
+    <div class="by3">${change.doc.data().Written_By}
+    <div class="time3">${change.doc.data().Time}</div>
+    </div>
+    
+    <!--<div class="holder">
+  <div class="candle">
+    <div class="blinking-glow"></div>
+    <div class="thread"></div>
+    <div class="glow"></div>
+    <div class="flame"></div>
+  </div>
+</div>-->
+
+
+    <!--<div class="footer">Footer</div>-->
+  </div>`;
+
+document.getElementById("card").appendChild(post);
+break;
+
+          case "4":
+element.style.backgroundImage = "url('bg25.jpeg')";
+element.innerHTML += `
+              <div class="header4">${change.doc.data().Title}</div>
+
+    <div class="data4">
+        ${change.doc.data().Wrote}
+    </div>
+    
+    <div class="by4">${change.doc.data().Written_By}
+    <div class="time4">${change.doc.data().Time}</div>
+    </div>
+
+    <!--<div class="footer">Footer</div>-->
+  </div>`;
+
+document.getElementById("card").appendChild(post);
+break;
+
+          case "5":
+element.style.backgroundImage = "url('bg27.jpeg')";
+element.innerHTML += `
+              <div class="header5">${change.doc.data().Title}</div>
+
+    <div class="data5">
+        ${change.doc.data().Wrote}
+    </div>
+    
+    <div class="by5">${change.doc.data().Written_By}
+    <div class="time5">${change.doc.data().Time}</div>
+    </div>
+
+    <!--<div class="footer">Footer</div>-->
+  </div>`;
+
+document.getElementById("card").appendChild(post);
+break;
+          case "6":
+element.style.backgroundImage = "url('dua.jpeg')";
+element.innerHTML += `
+              <div class="header6">${change.doc.data().Title}</div>
+
+    <div class="data6">
+        ${change.doc.data().Wrote}
+    </div>
+    
+    <div class="by6">${change.doc.data().Written_By}
+    <div class="time6">${change.doc.data().Time}</div>
+    </div>
+
+    <!--<div class="footer">Footer</div>-->
+  </div>`;
+
+document.getElementById("card").appendChild(post);
+break;
+              
+              
+          default:
+              break;
+      }
+  }
+  
+  const chatThemes = getTheme(change.doc.data());
+    applyTheme(post, chatThemes);
+  
+  
+  
+        
+  } /* if */
+  
+    })
+    })
+  }
+  
+  displayNotes();
+  
+  </script>
+
+</body>
+</html>
+
+
+
+<!-- <div class="card">
+  <div class="inner">
+    <div class="header"><img class="dummy" src="city2.png"/>aman wrote</div>
+
+    <div class="data">
+        
+    </div>
+
+    <!--<div class="footer">Footer</div>
+  </div>
+ </div>-->

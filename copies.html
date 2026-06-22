@@ -1,0 +1,982 @@
+<html>
+				<title></title>
+				<head>
+								<meta name="viewport" content="width=device-width, initial-scale=1">
+								<link rel="stylesheet" href="webstyle.css">
+								<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+					<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Nunito:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Nunito:ital,wght@1,300&family=Pangolin&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&family=Lily+Script+One&family=Nunito:ital,wght@1,300&family=Pangolin&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src=
+"https://cdn.jsdelivr.net/npm/typed.js@2.0.11">
+</script>
+
+<link rel="stylesheet" type="text/css" href="normalise.css">
+
+<!--<script src="app.js"></script>-->
+				
+								
+								
+								
+				</head>
+				<body id="bdy">
+				    
+				    <div class="options" id="banner">
+													<div class="bmdinner">
+																	<p class="Block" id="blockuser">Thank you for visiting my website<br>Please click on the <i class="fa fa-plus-circle" style="position:relative; top: 3px;"></i> icon to share your thoughts</p>
+													</div>
+													<hr class="slim">
+											<center><button class="ok" id="OK" onclick="togglebgmusic()">OK</button></center>
+													
+									</div>
+								
+						<audio controls autoplay id="audioplayer">
+ <source src="alpha.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+								
+								
+								
+		<div class="tab-body"> 
+					<div class="tabcontent divactive hm" id="home">
+					    			    
+					   <div class="chatbox">
+           <div class="userbar">
+              <!-- <nav class="topnav">
+												     theunbelievables
+								      </nav>-->
+								      Memories
+           </div>
+              <div class="container" id="cont">   
+                          
+              </div>		
+              		    
+					        <footer class="fut">
+             </footer>
+        </div>
+								
+									
+    	</div>
+												
+					<div class="tabcontent divactive snd" id="send">
+		
+</div>
+
+<!--<div class="tabcontent divactive rm" id="rome">
+				<div class="postdiv">
+								<div class="wrapperdiv">	
+												<form class="pstform">
+				<input type="text" class="textf" id="name" placeholder="Enter your name here" required>
+				<textarea class="write" id="write" placeholder="Write something here" required></textarea>
+				<input type="button" class="postbtn" value="Post" id="pst">
+				</form>
+				</div>
+</div>
+				
+</div>   -->      <!--end original-->
+
+<div class="tabcontent divactive dm" id="dome">
+				
+</div>
+
+<div class="tabcontent divactive abtsec pm" id="prom">
+   <div class="baksa">
+				<div class="imgdiv">
+								<img class="me" src="1634980325678.png">
+				</div>
+				<p class="abt"><bold>Aman Khan</bold></p>
+				<br>
+				<p class="digitalcrt">Digital Creator</p>
+				<br>
+				<div class="aboutbox">
+				</div>
+				<div class="imdev">
+				    <p class="typ"></p>
+				</div>
+		</div>
+								
+				
+</div>
+  
+<!--  <nav class="navi header" id="header feather">
+<a href="#" class="navlink"><i class="fa fa-envelope-open-o active btn" style="font-size:30px;" onclick="sett()"></a></i>
+
+<a href="#" class="navlink"><i class="fa fa-plus-circle btn" style="font-size:30px;" onclick="openTab(event, 'rome')"></a></i>
+
+<a href="#" class="navlink"><i class="fa fa-user-circle-o btn" style="font-size:30px;" onclick="openTab(event, 'prom')"></a></i>
+  </nav>-->
+  
+</div> 
+								
+				<!--		<nav class="topnav">
+												theunbelievables  \S(.*\S)?
+								</nav>-->
+						
+	<div class="modal" id="modl">
+	  <div class="wr">Write what you feel about me</div>
+	   <div class="fdiv">
+     <!-- <form id="myForm" class="fom">-->
+	    <label class="lab"><strong>NAME</strong></label>&nbsp;<br>
+	    <input type="text" class="nm" id="nam" placeholder="Write Your Name" oninput="checke()" name="name" required pattern="^(?!\s*$).+" title="Please dont use empty space in your Name"/>
+	    <br>
+	    <label class="lab"><strong>Write Something About Me</strong></label>&nbsp;<br>
+	    <textarea type="text" class="ta" id="tx" placeholder="Write Something..." oninput="checke()" name="message" required pattern="\S(.*\S)?"></textarea>
+	      </div>
+	    
+	    <div class="botdiv">
+								<button type="button" class="cancelbtn" id="cancel" onclick="Close()">Cancel</button>
+								<button class="savebtn" id="psave" onclick="hidemodal()">Save</button>
+				</div>
+			    <!--</form>-->
+			     
+	    
+	</div>
+								
+						
+								
+								
+								<nav class="navbar header" id="header">
+<a href="#" class="navlink"><button class="btta" onclick="openTab('fst', 'home')"><i class="fa fa-comments-o active btn" id="fst" style="font-size:30px;"></i></button></a>
+
+
+<a href="#" class="navlink"><button class="btta" onclick="OpenModal()"><i class="fa fa-plus-circle btn" style="font-size:30px;"></i></button></a>
+
+
+<a href="#" class="navlink"><button class="btta" onclick="openTab('thrd', 'prom')"><i class="fa fa-user-circle-o btn" id="thrd" style="font-size:30px;"></i></button></a></nav>
+
+
+
+<!--<a href="#" class="navlink"><img class="heart" src="r/bdl.png"></a>
+<a href="#" class="navlink"><img src="adobe_air.png"></a>
+			<a href="#" class="navlink"><img src="portfolio.png"></a>
+			<a href="#" class="navlink"><img src="portfolio.png"></a>
+			<a href="#" class="navlink"><img src="portfolio.png"></a>-->
+			
+	
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+  import { getDatabase, set, ref, child, push, onValue, get} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+import { getFirestore, doc, setDoc, getDoc, collection, getDocs, onSnapshot, deleteDoc, query, orderBy, serverTimestamp} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  /*const firebaseConfig = {
+    apiKey: "AIzaSyAVWWMkLRAC79kvrx5PpvdkMtgMKmbc1hs",
+    authDomain: "store-4a0c9.firebaseapp.com",
+    projectId: "store-4a0c9",
+    storageBucket: "store-4a0c9.appspot.com",
+    messagingSenderId: "679682903095",
+    appId: "1:679682903095:web:6c0a555b55dd660e5683b2"
+  };*/
+  
+  
+  const firebaseConfig = {
+  apiKey: "AIzaSyCY-YRbWBexOHj_a-B7vTmxSthBizYr3UA",
+  authDomain: "insta-e6486.firebaseapp.com",
+  projectId: "insta-e6486",
+  storageBucket: "insta-e6486.appspot.com",
+  messagingSenderId: "404557604443",
+  appId: "1:404557604443:web:b0ed5ce9c0adbeb1b1c17e",
+  measurementId: "G-8EWKX7DCQX"
+};
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+
+/*  const querySnapshot = getDocs(collection(db, "Users"));
+  
+const unsub = onSnapshot(collection(db, "Users"));*/
+
+
+const $form = document.querySelector("#myForm");
+const $save = document.querySelector("#psave");
+
+/*window.onload = () => {
+  $form.querySelector("input").focus();
+};*/
+
+/*$save.onclick = function(e){
+var tf = document.getElementById("tx").value.trim();
+e.preventDefault();
+if(tf != "")
+    {
+       document.getElementById("nam").value="";
+       document.getElementById("tx").value="";       
+    }
+}*/
+
+
+
+  /*document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevents the default form action
+      document.getElementById("modl").classList.toggle("opaque");
+   
+})*/
+
+/*document.getElementById('cancel').addEventListener('click', function cancel(){
+
+document.getElementById("modl").classList.toggle("opaque");
+    
+})*/
+
+/*document.getElementById("psave").addEventListener("click", function pikner()
+    {
+        var tf = document.getElementById("tx").value.trim();
+    var bt = document.getElementById("psave");
+    
+    if(tf === "")
+    {
+        bt.style.background="red";
+        alert("please enter something!");
+       bt.disabled=true;
+    }
+    
+    })*/
+  
+   document.getElementById("psave").addEventListener("click", function posted(){
+ 
+ 
+
+ const date = new Date();
+ var day = date.getDate();
+ var month = date.toLocaleString("default", { month: 'short'});
+ var year = date.getFullYear();
+ 
+ var h = date.getHours();
+ var m = date.getMinutes();
+ 
+  var key = Math.random();
+  var verified = "Yes";
+  var unverified = "No";
+  var love = "love";
+  var nolove = "nolove";
+ let uname = document.getElementById("nam").value;
+const post = document.getElementById("tx").value;
+
+
+var tf = document.getElementById("tx").value.trim();
+var inpt = document.getElementById("tx");
+var inpf = document.getElementById("nam");
+var nf = document.getElementById("nam").value.trim();
+var bt = document.getElementById("psave");
+const stop = new Audio("stop.mp3");
+const sent = new Audio("success.mp3");
+    
+    if(nf ==="" && tf === "")
+    {
+        //bt.style.background="red";
+        stop.play();
+        inpf.focus();
+        inpt.value="";
+        inpt.placeholder = "Don't leave this field empty";
+       /* setTimeout(2000,alert("Please Enter Something!"));*/
+       //bt.disabled=true;
+       
+       
+        inpf.value="";
+        inpf.placeholder="Please write you Name";
+       
+    }
+   else if(nf === "")
+    {
+        //bt.style.background="red";
+        stop.play();
+        inpf.value="";
+        inpf.focus();
+        inpf.placeholder="Please write you Name";
+        //alert("Please Enter Your Name!");
+       //bt.disabled=true;
+    }
+   /* else if(nf ==="" && tf !="")
+    {
+        stop.play();
+    }*/
+    else if (tf ==="")
+    {
+        stop.play();
+        inpt.focus();
+        inpt.value="";
+        inpt.placeholder = "Don't leave this field empty";
+    }
+    
+
+else if (nf.toUpperCase()=="AMAN" || nf.toUpperCase()=="unb") {
+setDoc(doc(db, 'Users',uname+key),{
+  				Written_By: uname,
+  				Wrote: post,
+					Time: day+" "+month+" "+year+" "+h+":"+m,
+  				Verified: verified,
+  				Love: nolove,
+  				createdAt: serverTimestamp(),
+
+  });
+  sent.play();
+  bt.disabled=true;
+document.getElementById("modl").classList.toggle("opaque");
+inpt.value="";
+inpf.value="";
+inpf.placeholder = "Enter Your Name";
+inpt.placeholder = "Write Some About Me";
+//alert("Thank you");
+				
+}
+
+else if (nf.toUpperCase()=="EVA" || nf.toUpperCase() =="SHANAYA") {
+setDoc(doc(db, 'Users',uname+key),{
+  				Written_By: uname,
+  				Wrote: post,
+					Time: day+" "+month+" "+year+" "+h+":"+m,
+  				Verified: unverified,
+  				Love: love,
+  				createdAt: serverTimestamp(),
+  });
+  sent.play();
+  bt.disabled=true;
+document.getElementById("modl").classList.toggle("opaque");
+inpt.value="";
+inpf.value="";
+inpf.placeholder = "Enter Your Name";
+inpt.placeholder = "Write Some About Me";
+}
+
+else {
+setDoc(doc(db, 'Users',uname+key),{
+  				Written_By: uname,
+  				Wrote: post,
+					Time: day+" "+month+" "+year+" "+h+":"+m,
+					Verified: unverified,
+					Love: nolove,
+					createdAt: serverTimestamp(),
+					});
+					sent.play();
+					bt.disabled=true;
+document.getElementById("modl").classList.toggle("opaque");
+inpt.value="";
+inpf.value="";
+inpf.placeholder = "Enter Your Name";
+inpt.placeholder = "Write Some About Me";
+//alert("Thank You");
+					
+					
+				}
+})
+
+
+
+/*var str = "aman🙁";
+var cnv = str.toUpperCase();
+if (cnv == "AMAN")
+{
+    alert("yes");
+}
+else
+{
+    alert("No");
+}*/
+
+
+
+
+function relod(){
+				location.reload();
+}
+
+async function showM(){
+
+const options = {
+  serverTimestamps: 'estimate', // Prevent automatic ordering on the server
+};
+
+
+/*<img class="verified" src="https://img.icons8.com/color/48/000000/verified-badge.png"/>	*/
+
+
+const dataRef = collection(db, 'Users');
+
+const Query = query(dataRef, orderBy('createdAt'));
+
+window.unsubscribe = onSnapshot(Query, (snap) =>{
+snap.docChanges().forEach(change => {
+
+let dv = document.createElement('div');
+let unv = document.createElement('div');
+dv.setAttribute("class", "htt");
+unv.setAttribute("class", "htt");
+
+									
+									/*test*/
+									if (change.type === 'added') {
+									
+						/*	if (change.doc.data().Verified=="Yes") {*/
+							/*unv.setAttribute("class", "htt2");*/
+				/*			unv.innerHTML+=`
+												<div class="card">										
+												<article>${change.doc.data().Written_By}&nbsp</article>
+									<p class="wrote">${change.doc.data().Wrote}</p>
+									<br>
+									<br>
+									<p class="time">${change.doc.data().Time}</p>
+									</div>
+									`	;							document.getElementById("cont").appendChild(unv);*/
+				
+/*}*/
+
+/*else {
+unv.setAttribute("class", "htt");
+unv.innerHTML+=`
+												<div class="card">
+												<article>${change.doc.data().Written_By}    </article>
+									<p class="wrote">${change.doc.data().Wrote}</p>
+									<br>
+									<br>
+									<p class="time">${change.doc.data().Time}</p>
+									</div>
+									`
+									document.getElementById("cont").appendChild(unv);
+				
+}*/
+
+/*function applyChatThemes(element, themes) {
+  themes.forEach(theme => {
+    switch (theme) {
+      case "verified":
+        element.innerHTML += `<img class="verified" src="https://img.icons8.com/color/48/000000/verified-badge.png"/>`;
+        //alert(theme);
+        break;
+      case "aman":
+        element.innerHTML += `<img class="verified" src="Tp1.jpg"/>`;
+        break;
+      // Add more cases for other themes
+      default:
+        break;
+    }
+  });
+}*/
+
+
+function getVerified(data) {
+  //const themes = [];
+
+  if (data.Verified === "Yes")      
+  {
+    return "verified";
+  }
+  
+  else
+  {
+      return "unverified";
+  }
+  
+  // Add more conditions and themes as needed
+
+  //return themes;
+}
+
+function applyVerified(element, themes) {
+    switch (themes) {
+      case "verified":
+      /*  element.innerHTML += `<img class="verified" src="https://img.icons8.com/color/48/000000/verified-badge.png"/>`;*/
+      element.innerHTML+=`
+												<div class="card">										
+												<article>${change.doc.data().Written_By}&nbsp<img class="verified" src="https://img.icons8.com/color/48/000000/verified-badge.png"/></article>
+									<p class="wrote">${change.doc.data().Wrote}</p>
+									<br>
+									<br>
+						<p class="time">${change.doc.data().Time}</p>
+									</div>
+									`	;							document.getElementById("cont").appendChild(unv);
+        break;
+      case "unverified":
+      
+      element.innerHTML+=`
+												<div class="card">										
+												<article>${change.doc.data().Written_By}</article>
+									<p class="wrote">${change.doc.data().Wrote}</p>
+									<br>
+									<br>
+						<p class="time">${change.doc.data().Time}</p>
+									</div>
+									`	;							document.getElementById("cont").appendChild(unv);
+       
+        break;
+      // Add more cases for other themes
+      default:
+        break;
+    }
+}
+
+function getAdmin(datat) {
+  //const admins = [];
+
+  if (datat.Admin === "Admin")      
+  {
+    return "Admin";
+  }
+  
+  else
+  {
+      return "noAdmin";
+  }
+
+  //return admins;
+}
+
+function applyadmin(element, admins) {
+    switch (admins) {
+      case "Admin":
+        element.innerHTML += `<img class="verified" src="Tp1.jpg"/>`;
+        /*element.innerHTML += `&nbsp;<img class="verified" src="Tp1.jpg"/>`;*/
+        break;
+      case "noAdmin":
+        
+        break;
+      // Add more cases for other themes
+      default:
+        break;
+    }
+}
+
+
+function getLove(data) {
+  //const themes = [];
+
+  if (data.Love === "love")      
+  {
+    return "love";
+  }
+  
+  else
+  {
+      return "nolove";
+  }
+  
+  // Add more conditions and themes as needed
+
+  //return themes;
+}
+
+function applyLove(element, themes) {
+    switch (themes) {
+      case "love":
+        unv.style.overflow="visible";
+        element.innerHTML += `<img class="love" src="hearts.png"/>`;
+        break;
+      case "nolove":
+       
+        break;
+      // Add more cases for other themes
+      default:
+        break;
+    }
+}
+
+const Chatadmin = getAdmin(change.doc.data());
+   applyadmin(unv, Chatadmin);
+   
+const Chatlove = getLove(change.doc.data());
+   applyLove(unv, Chatlove);
+
+const chatThemes = getVerified(change.doc.data());
+    applyVerified(unv, chatThemes);
+
+
+
+
+
+
+
+
+/*if(change.doc.data().Wrote=="Check uppercase"){
+
+unv.innerHTML+=`<img class="verified" src="https://img.icons8.com/color/48/000000/verified-badge.png"/>	`;				
+}
+else if(change.doc.data().Written_By==="Aman")
+{
+    unv.innerHTML+=`<img class="verified" src="Tp1.jpg"/>	`;
+}*/
+
+
+}
+/*test*/
+
+/*let template = ``;
+querySnapshot.then((snap)=> {
+snap.docs.forEach(doc => {
+renderS(doc);
+})
+})*/
+
+})
+})
+}
+
+showM();
+
+
+window.addEventListener("beforeunload", function() {
+      // Show a simple alert when the window is closed
+          audioplayer.pause();
+          unsubscribe();
+    });
+
+
+</script>
+  
+  
+  
+  
+  
+
+
+ 
+
+  
+												
+											
+								
+								
+								
+								
+				
+				
+				<script>
+const tap = new Audio("zap1.mp3");
+const canc = new Audio("zap3.mp3");
+
+const audioPlayer = document.getElementById('audioplayer');
+const banner = document.getElementById("banner");
+
+function openTab(evt, tabName) {
+//alert(evt);
+elm = evt;
+var i, tabcontent, btns;
+tabcontent = document.getElementsByClassName("tabcontent");
+for(i=0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display="none";
+}
+btns = document.getElementsByClassName("btn");
+for(i =0; i < btns.length; i++) {
+				btns[i].className = btns[i].className.replace(" active", "");
+}
+tap.play(); document.getElementById(tabName).style.display="block";
+//document.getElementById(tabName).style.display="block";
+ //evt.currentTarget.classList.toggle("active");
+ 
+ document.getElementById(evt).classList.toggle("active");
+}
+
+  
+function sett()
+{
+ openTab(event, 'home');         
+ document.getElementById("feather").style.display="none";
+}
+
+function OpenModal()
+{
+tap.play(); document.getElementById("modl").classList.toggle("opaque");  
+document.getElementById("nam").focus();
+}
+
+function Close()
+{
+canc.play(); document.getElementById("modl").classList.toggle("opaque");
+document.getElementById("nam").value="";
+document.getElementById("tx").value="";
+}
+
+
+function hidemodal()
+{
+/*document.getElementById("nam").value="";
+document.getElementById("tx").value=""; document.getElementById("myForm").classList.toggle("opaque");*/
+}
+
+
+//document.getElementById("butta").disabled=true;
+
+$('.btta').prop('disabled', true); 
+
+
+
+
+const inputFields = document.querySelectorAll('.modal');
+
+// Add a focus event listener to each input field
+inputFields.forEach(input => {
+  input.addEventListener('focus', (event) => {
+    event.preventDefault(); // Prevent default scroll behavior
+    // You can also add any additional logic here, such as opening the modal if it's closed.
+  });
+});
+
+var nf = document.getElementById("nam").value.trim();
+    var tf = document.getElementById("tx").value.trim();
+    var bt = document.getElementById("psave");
+
+function checknf(field){
+	if (field == "" ||
+	 field == null ||
+		field == "undefinied"){
+
+		return false;
+	}
+	else if(/^\s*$/.test(field)){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+
+
+function checktf(field){
+	if (field == "" ||
+	 field == null ||
+		field == "undefinied"){
+
+		return false;
+	}
+	else if(/^\s*$/.test(field)){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+
+
+	
+
+
+/*var nf = document.getElementById("nam").value.trim();
+    var tf = document.getElementById("tx").value.trim();
+    var bt = document.getElementById("psave");
+    
+
+if (nf === '' && tf === '') {
+        alert('Both input fields are missing.');
+                bt.disabled = true;
+                bt.style.background = "red";
+            } else if (nf === '') {
+                alert('Field 1 is missing.');
+                bt.disabled = true;
+                bt.style.background = "red";
+            } else if (tf === '') {
+                alert('Field 2 is missing.');
+               bt.disabled = true;
+               bt.style.background = "red";
+            } else {
+                // Enable the button if both fields have values
+                bt.disabled = false;
+                bt.style.background = "pink";
+            }*/
+
+
+
+function checke() 
+{
+    var nf = document.getElementById("nam").value.trim();
+    var tf = document.getElementById("tx").value.trim();
+    var bt = document.getElementById("psave");
+    
+    
+   /* if(nf == "" && tf != "")
+    {
+        bt.style.background="red";
+        alert("please enter your name!");
+        bt.disabled=true;
+    }
+    else if(nf != "" && tf == "")
+    {
+        bt.style.background="red";
+        alert("please enter something in the field");
+        bt.disabled=true;
+    }
+    else if(nf == "" && tf == "")
+    {
+        bt.style.background="red";
+        alert("please enter something")
+        bt.disabled=true;
+    }
+    else
+    {
+        bt.style.background="pink";
+        bt.disabled=false;
+    }*/
+    
+   /* if(nf == "")
+    {
+        bt.style.background="red";
+        //alert("please enter your name!");
+        bt.disabled=true;
+    }
+    else if(tf == "")
+    {
+        bt.style.background="red";
+        //alert("please enter something!");
+        bt.disabled=true;
+    }
+    else
+    {
+        bt.style.background="pink";
+        bt.disabled=false;
+    }*/
+    
+  /*  if(tf === "")
+    {
+        bt.style.background="red";
+        //alert("please enter something!");
+       bt.disabled=true;
+    }
+    else
+    {
+        bt.style.background="pink";
+        bt.disabled=false;
+    }*/
+}
+
+function togglebgmusic()
+{
+    banner.classList.toggle("hidden");
+if (audioPlayer.paused) {
+        audioPlayer.play();
+        //playButton.textContent = 'Pause';
+      }
+      else
+      {
+          audioplayer.pause();
+      }
+      
+      $('.btta').prop('disabled', false);
+}
+
+var typed = new Typed(".typ", {
+            strings: ["Hi, i am Aman, and i am a software developer. I have a genuine passion for all things tech, and I am constantly diving into the exciting world of software development. It is like solving puzzles, and I absolutely love it. I am the kind of person who never stops learning, always staying up-to-date with the latest programming languages, frameworks, and trends. <br>When it comes to coding, I am all about turning complex problems into elegant solutions. I find that there is something incredibly satisfying about writing lines of code that bring ideas to life. Quality is essential to me, and I strive to create software that not only works flawlessly but also provides seamless experiences for users."],
+              
+            typeSpeed: 30,
+            backSpeed: 10,
+            loop: true,
+        });
+
+       
+   
+
+
+
+						</script>
+						
+					<!--<script>
+										area=document.getElementById("write");
+										document.getElementById("pst").addEventListener("click", function posted(){
+		  	act=document.getElementById("home");
+									<!--	function posted(){-->
+										<!--var gt = document.getElementById("write").value;
+									
+										var crt = document.createElement("div");
+									/*	crt.setAttribute("class", "htt");
+										crt.innerHTML=gt;
+										/*act.appendChild(crt)+"<br>";*/
+										
+										var obj = {"nissan":gt};
+
+localStorage.setItem('myStorage', JSON.stringify(obj));
+										
+										
+										
+								});
+								var obj = JSON.parse(localStorage.getItem('myStorage'));
+let w = obj.nissan;
+console.log(w);
+
+
+var crt = document.createElement("div");
+crt.setAttribute("class", "htt");
+crt.innerHTML=w;
+document.getElementById("home").appendChild(crt);
+theunbelievables&#1109;				
+&#1040;man	
+							
+								
+						
+						</script>-->
+						
+						<script>
+										$('#name').on('keypress keyup keydown', function () { 
+  if ($('#name').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+  } 
+});
+$('#name').on('keypress keyup keydown', function () { 
+  if ($('#name').val() == "" ) { 
+  				if ($('#write').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+  } 
+}
+});
+
+$('#write').on('keypress keyup keydown', function () { 
+  if ($('#write').val() == "" ) { 
+  				if ($('#name').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+  } 
+}
+});
+$('#write').on('keypress keyup keydown', function () { 
+  if ($('#write').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+  } 
+});
+
+
+
+
+
+if ($('#name').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+    }
+    
+    
+if ($('#write').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+    }
+    
+    
+    
+    
+
+						</script>
+</body>
+</html>

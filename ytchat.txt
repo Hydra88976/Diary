@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Chat</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.chat-container{
+    width: 100%;
+    height: 100%;
+    background:#0f0f0f;
+    border-radius:25px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+
+.header{
+    padding-top:20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom:1px solid #222;
+    padding-bottom: 5px;
+    /*background: red;*/
+    
+}
+
+.top-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    /*background: green;*/
+    padding: 0px;
+    
+}
+
+.title{
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.icons{
+    display:flex;
+    gap:25px;
+    color:white;
+    font-size:25px;
+}
+
+.sub-row{
+    margin-top:1px;
+    display:flex;
+    align-items:center;
+    gap:1px;
+    /*background: red;*/
+    width: 100px;
+    /*transform: translateX(50px);*/
+}
+
+.viewers{
+    color:#aaa;
+    font-size:12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -5px;
+}
+
+.xp{
+    background:#1b1527;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    border:1px solid #5a3cff;
+}
+
+.chat-list{
+    flex:1;
+    overflow-y:auto;
+    padding:15px;
+    padding-bottom: 1px;
+    /*background: red;*/
+}
+
+.message{
+    display:flex;
+    margin-bottom:10px;
+}
+
+.avatar{
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background:#2b8cff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-weight:bold;
+    margin-right:10px;
+    min-width:30px;
+    min-height:30px;
+    flex-shrink: 0;
+}
+
+.content{
+    color:white;
+}
+
+.username{
+    color:#a8a8a8;
+    font-weight:bold;
+    font-size: 12px;
+}
+
+.text{
+    margin-top:4px;
+    line-height:1.4;
+    font-size: 12px;
+}
+
+.input-area{
+    padding:15px;
+    border-top:1px solid #222;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    height: 60px;
+}
+
+.input-box{
+    flex:1;
+    background:#1b1b1b;
+    border:none;
+    outline:none;
+    color:white;
+    padding:15px;
+    border-radius:30px;
+    height: 40px;
+}
+
+.send{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:none;
+    /*background:#2a2a2a;*/
+    background: none;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.umsg {
+    margin: 0; /*Remove default margins from para*/
+    word-break: break-word;
+    /*background-color: red;*/
+    max-height: 100%;
+    /*flex-basis: 100%;*/
+    overflow: hidden;
+    white-space: normal;
+    text-indent: 0px;
+    color: white;
+    font-size: 12px;
+    margin-top: 6px;
+    
+    }
+
+ .nm {
+    /*font-weight: bold;*/
+    /*margin-right: 5px;*/
+    color:#a8a8a8;
+    font-size: 13px;
+    }
+    
+    .message-container {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      font-size: 13px;
+     /*background: green;*/
+      
+    }
+    .watching
+    {
+      height: 9px;
+      width: 9px;
+      color: gray;
+    }
+    .settingicon
+    {
+      height: 22px;
+      width: 22px;
+      margin-top: 16px;
+    }
+    .digit
+    {
+      font-size: 11px;
+    }
+    .sbtn
+    {
+      height: 20px;
+      width: 20px;
+      margin-top: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="chat-container">
+
+    <div class="header">
+        <div class="top-row">
+            <div class="title">Live chat</div>
+
+            <div class="icons">
+                <img src="https://cdn-icons-png.flaticon.com/512/70/70115.png" class="settingicon"/>
+                
+                <img src="https://cdn-icons-png.flaticon.com/512/2961/2961937.png" class="settingicon"/>
+                
+            </div>
+        </div>
+
+        <div class="sub-row">
+            <div class="viewers">All messages &nbsp; <img src="https://cdn-user-icons.flaticon.com/246106/246106293/1781524340466.svg?token=exp=1781525242~hmac=9600534d7f0f1ef1e36c203f22a6ab1d" class="watching"/><p class="digit">&nbsp;2</p></div>
+            <!--<div class="xp">👑 28K XP</div>-->
+        </div>
+    </div>
+
+    <div class="chat-list">
+      
+      
+      
+      
+      <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™ &nbsp;</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+<div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+ <div class="message-container">
+    <div class="avatar">P</div>
+    <p class="umsg">
+        <span class="nm">Bayyer™</span>
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        hello this is a long message that can wrap
+        
+    </p>
+</div>
+
+        <!--<div class="message">
+            <!--<div class="avatar">P</div>
+            <div class="content">
+                <div class="username">@PriyankaYadav</div>
+                <div class="text">bechari sidhi na hove</div>
+            </div>
+        </div>-->
+
+        <!--<div class="message">
+            <div class="avatar">N</div>
+            <div class="content">
+                <div class="username">@Noidentity1135</div>
+                <div class="text">😂😂</div>
+            </div>
+        </div>
+
+        <div class="message">
+            <div class="avatar">A</div>
+            <div class="content">
+                <div class="username">@AMAN_F16</div>
+                <div class="text">tu hijda h</div>
+            </div>
+        </div>-->
+
+    </div>
+
+    <div class="input-area">
+        <input type="text" class="input-box" placeholder="Chat...">
+        <button class="send"><img class="sbtn" src="https://cdn-icons-png.flaticon.com/512/11455/11455103.png"/></button>
+    </div>
+
+</div>
+
+</body>
+</html>
